@@ -1,3 +1,3 @@
 from art import *
 import random
-print(random.choice(dice))
+print(dice[random.randint(0,6)])
