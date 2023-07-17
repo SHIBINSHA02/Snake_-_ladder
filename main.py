@@ -1,13 +1,17 @@
+from player import Target
 
-from player import *
+Player=[]
+num= int(input("Enter the number of Players"))
 
-name = input("Enter your name:")
-Player1 = Target(name)
+for i in range (num):
+    name = input("Enter your name:")
+    Player.append(Target(name))
 
-# while Player1.ongame :
-for _ in range (100):
-    Player1.updater()
-    Player1.promotion()
-    Player1.won()
+while any (player.ongame for player in Player):
+    for player in Player:
+        player.updater()
+        player.promotion()
+        player.won()
+    
     print("/////////////")
     

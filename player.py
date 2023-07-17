@@ -1,6 +1,6 @@
-
+import random
 def roll_dice():
-        import random
+        
         r=random.randint(1,6)
         return r
 
@@ -18,16 +18,13 @@ class Target:
 
 
     def promotion(self):
-        locate = -1
-        temp = self.position
         if self.position in self.fromposition:
             locate=self.fromposition.index(self.position) 
             self.position = self.toposition[locate]
-            if temp != self.position:
-                if self.toposition[locate] > self.fromposition[locate]:
-                    print("You climbed")
-                else:
-                    print("snake bite")
+            if self.toposition[locate] > self.fromposition[locate]:
+                print("You climbed")
+            else:
+                print("snake bite")
 
    
     
@@ -38,16 +35,21 @@ class Target:
             if dice == 6:
                 self.position = self.initial
         else:
-            f =self.final % self.position
-            if self.position != 0 and f <= dice:    
-                print(f"dice={dice}")
+            f =self.final - self.position
+            print(f"dice={dice}")
+            if  f >= dice:    
+              
                 self.position += dice
         print(f"self.position={self.position}")
 
 
     def won(self):
-        if self.position == self.final :
+        if self.position >= self.final :
             self.ongame = False
+            print(f"{self.name} won the match ")
+
+        
+    
 
         
 
