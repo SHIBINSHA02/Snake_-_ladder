@@ -4,7 +4,7 @@ def roll_dice():
         r=random.randint(1,6)
         return r
 
-
+from art import dices
 class Target:
     def __init__(self,name) :
        self.fromposition = [8,19,21,28,36,43,50,54,61,62,66,98,93,83,69,68,64,59,52,48,46]
@@ -25,22 +25,24 @@ class Target:
                 print("You climbed")
             else:
                 print("snake bite")
+            print(f"So {self.name} is now @ position={self.position}")   
 
    
     
     
     def updater (self):
         dice = roll_dice()
+        print(dices[dice-1])
         if self.position == 0:
             if dice == 6:
                 self.position = self.initial
         else:
             f =self.final - self.position
-            print(f"dice={dice}")
+            # print(f"dice={dice}")
             if  f >= dice:    
               
                 self.position += dice
-        print(f"self.position={self.position}")
+        print(f"{self.name} got dice {dice} so now @ position={self.position}")
 
 
     def won(self):

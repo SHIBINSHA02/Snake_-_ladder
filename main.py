@@ -7,11 +7,11 @@ for i in range (num):
     name = input("Enter your name:")
     Player.append(Target(name))
 
-while any (player.ongame for player in Player):
+while all (player.ongame for player in Player):
     for player in Player:
         player.updater()
         player.promotion()
         player.won()
     
-    print("/////////////")
+    input("/////////////")
     
